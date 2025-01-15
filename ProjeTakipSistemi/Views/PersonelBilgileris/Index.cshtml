@@ -1,0 +1,132 @@
+﻿@model IEnumerable<ProjeTakipSistemi.Models.Personel.PersonelBilgileri>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Eposta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sifre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yetki)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TCNO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departman)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gorev)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PozisyonAciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedeniHal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YakinlikBilgisi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YakinTC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YakinTel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogumTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IseGirisTarihi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eposta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sifre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yetki)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TCNO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departman)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gorev)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PozisyonAciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedeniHal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YakinlikBilgisi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YakinTC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YakinTel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogumTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IseGirisTarihi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PersonelBilgileriId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PersonelBilgileriId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PersonelBilgileriId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
