@@ -5,117 +5,89 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>PersonelBilgileri</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Eposta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Eposta)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Sifre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Sifre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Yetki)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Yetki)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AdSoyad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AdSoyad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TCNO)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TCNO)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Departman)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Departman)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gorev)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gorev)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Aciklama)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Aciklama)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PozisyonAciklama)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PozisyonAciklama)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TelNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TelNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Adres)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Adres)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MedeniHal)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MedeniHal)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.YakinlikBilgisi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.YakinlikBilgisi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.YakinTC)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.YakinTC)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.YakinTel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.YakinTel)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DogumTarihi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DogumTarihi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IseGirisTarihi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IseGirisTarihi)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.PersonelBilgileriId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <h5 class="card-header">Profile Details</h5>
+            <hr class="my-0" />
+            <div class="card-body">
+                <form id="formAccountSettings" method="POST" onsubmit="return false">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="Eposta" class="form-label">E-posta</label>
+                            <input class="form-control" type="text" id="Eposta" name="Eposta" value="@Model.Eposta" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Sifre" class="form-label">Şifre</label>
+                            <input class="form-control" type="text" id="Sifre" name="Sifre" value="@Model.Sifre" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Yetki" class="form-label">Yetki</label>
+                            <input class="form-control" type="text" id="Yetki" name="Yetki" value="@Model.Yetki" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="AdSoyad" class="form-label">Ad Soyad</label>
+                            <input class="form-control" type="text" id="AdSoyad" name="AdSoyad" value="@Model.AdSoyad" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="TCNO" class="form-label">TC Kimlik No</label>
+                            <input class="form-control" type="text" id="TCNO" name="TCNO" value="@Model.TCNO" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Departman" class="form-label">Departman</label>
+                            <input class="form-control" type="text" id="Departman" name="Departman" value="@Model.Departman" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Gorev" class="form-label">Görev</label>
+                            <input class="form-control" type="text" id="Gorev" name="Gorev" value="@Model.Gorev" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Aciklama" class="form-label">Açıklama</label>
+                            <input class="form-control" type="text" id="Aciklama" name="Aciklama" value="@Model.Aciklama" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="PozisyonAciklama" class="form-label">Pozisyon Açıklama</label>
+                            <input class="form-control" type="text" id="PozisyonAciklama" name="PozisyonAciklama" value="@Model.PozisyonAciklama" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="TelNo" class="form-label">Telefon Numarası</label>
+                            <input class="form-control" type="text" id="TelNo" name="TelNo" value="@Model.TelNo" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Adres" class="form-label">Adres</label>
+                            <input class="form-control" type="text" id="Adres" name="Adres" value="@Model.Adres" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="MedeniHal" class="form-label">Medeni Hal</label>
+                            <input class="form-control" type="text" id="MedeniHal" name="MedeniHal" value="@Model.MedeniHal" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="YakinlikBilgisi" class="form-label">Yakınlık Bilgisi</label>
+                            <input class="form-control" type="text" id="YakinlikBilgisi" name="YakinlikBilgisi" value="@Model.YakinlikBilgisi" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="YakinTC" class="form-label">Yakın TC</label>
+                            <input class="form-control" type="text" id="YakinTC" name="YakinTC" value="@Model.YakinTC" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="YakinTel" class="form-label">Yakın Telefon</label>
+                            <input class="form-control" type="text" id="YakinTel" name="YakinTel" value="@Model.YakinTel" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="DogumTarihi" class="form-label">Doğum Tarihi</label>
+                            <input class="form-control" type="text" id="DogumTarihi" name="DogumTarihi" value="@Model.DogumTarihi" readonly />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="IseGirisTarihi" class="form-label">İşe Giriş Tarihi</label>
+                            <input class="form-control" type="text" id="IseGirisTarihi" name="IseGirisTarihi" value="@Model.IseGirisTarihi" readonly />
+                        </div>
+                    </div>
+                    <div class="mt-2">
+@*                         <a asp-action="Edit" asp-route-id="@Model?.PersonelBilgileriId" class="btn btn-primary">Edit</a>
+ *@                        <a asp-action="Index" class="btn btn-outline-secondary">Listeye Dön</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

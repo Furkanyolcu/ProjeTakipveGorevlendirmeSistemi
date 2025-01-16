@@ -5,106 +5,106 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
-
-<h4>PersonelBilgileri</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Eposta" class="control-label"></label>
-                <input asp-for="Eposta" class="form-control" />
-                <span asp-validation-for="Eposta" class="text-danger"></span>
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <h5 class="card-header">Personnel Details</h5>
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="Eposta" class="form-label">E-posta</label>
+                            <input asp-for="Eposta" class="form-control" id="Eposta" />
+                            <span asp-validation-for="Eposta" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Sifre" class="form-label">Şifre</label>
+                            <input asp-for="Sifre" type="password" class="form-control" id="Sifre" />
+                            <span asp-validation-for="Sifre" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Yetki" class="form-label">Yetki</label>
+                            <input asp-for="Yetki" class="form-control" id="Yetki" />
+                            <span asp-validation-for="Yetki" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="AdSoyad" class="form-label">Ad Soyad</label>
+                            <input asp-for="AdSoyad" class="form-control" id="AdSoyad" />
+                            <span asp-validation-for="AdSoyad" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="TCNO" class="form-label">TC Kimlik No</label>
+                            <input asp-for="TCNO" class="form-control" id="TCNO" />
+                            <span asp-validation-for="TCNO" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Departman" class="form-label">Departman</label>
+                            <input asp-for="Departman" class="form-control" id="Departman" />
+                            <span asp-validation-for="Departman" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Gorev" class="form-label">Görev</label>
+                            <input asp-for="Gorev" class="form-control" id="Gorev" />
+                            <span asp-validation-for="Gorev" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Aciklama" class="form-label">Açıklama</label>
+                            <input asp-for="Aciklama" class="form-control" id="Aciklama" />
+                            <span asp-validation-for="Aciklama" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="PozisyonAciklama" class="form-label">Pozisyon Açıklama</label>
+                            <input asp-for="PozisyonAciklama" class="form-control" id="PozisyonAciklama" />
+                            <span asp-validation-for="PozisyonAciklama" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="TelNo" class="form-label">Telefon Numarası</label>
+                            <input asp-for="TelNo" class="form-control" id="TelNo" />
+                            <span asp-validation-for="TelNo" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="Adres" class="form-label">Adres</label>
+                            <input asp-for="Adres" class="form-control" id="Adres" />
+                            <span asp-validation-for="Adres" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="MedeniHal" class="form-label">Medeni Hal</label>
+                            <input asp-for="MedeniHal" class="form-control" id="MedeniHal" />
+                            <span asp-validation-for="MedeniHal" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="YakinlikBilgisi" class="form-label">Yakınlık Bilgisi</label>
+                            <input asp-for="YakinlikBilgisi" class="form-control" id="YakinlikBilgisi" />
+                            <span asp-validation-for="YakinlikBilgisi" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="YakinTC" class="form-label">Yakın TC</label>
+                            <input asp-for="YakinTC" class="form-control" id="YakinTC" />
+                            <span asp-validation-for="YakinTC" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="YakinTel" class="form-label">Yakın Telefon</label>
+                            <input asp-for="YakinTel" class="form-control" id="YakinTel" />
+                            <span asp-validation-for="YakinTel" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="DogumTarihi" class="form-label">Doğum Tarihi</label>
+                            <input asp-for="DogumTarihi" type="date" class="form-control" id="DogumTarihi" />
+                            <span asp-validation-for="DogumTarihi" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="IseGirisTarihi" class="form-label">İşe Giriş Tarihi</label>
+                            <input asp-for="IseGirisTarihi" type="date" class="form-control" id="IseGirisTarihi" />
+                            <span asp-validation-for="IseGirisTarihi" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Listeye dön</a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Sifre" class="control-label"></label>
-                <input asp-for="Sifre" type="password" class="form-control" />
-                <span asp-validation-for="Sifre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Yetki" class="control-label"></label>
-                <input asp-for="Yetki" class="form-control" />
-                <span asp-validation-for="Yetki" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdSoyad" class="control-label"></label>
-                <input asp-for="AdSoyad" class="form-control" />
-                <span asp-validation-for="AdSoyad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TCNO" class="control-label"></label>
-                <input asp-for="TCNO" class="form-control" />
-                <span asp-validation-for="TCNO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Departman" class="control-label"></label>
-                <input asp-for="Departman" class="form-control" />
-                <span asp-validation-for="Departman" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Gorev" class="control-label"></label>
-                <input asp-for="Gorev" class="form-control" />
-                <span asp-validation-for="Gorev" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Aciklama" class="control-label"></label>
-                <input asp-for="Aciklama" class="form-control" />
-                <span asp-validation-for="Aciklama" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PozisyonAciklama" class="control-label"></label>
-                <input asp-for="PozisyonAciklama" class="form-control" />
-                <span asp-validation-for="PozisyonAciklama" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TelNo" class="control-label"></label>
-                <input asp-for="TelNo" class="form-control" />
-                <span asp-validation-for="TelNo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Adres" class="control-label"></label>
-                <input asp-for="Adres" class="form-control" />
-                <span asp-validation-for="Adres" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MedeniHal" class="control-label"></label>
-                <input asp-for="MedeniHal" class="form-control" />
-                <span asp-validation-for="MedeniHal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="YakinlikBilgisi" class="control-label"></label>
-                <input asp-for="YakinlikBilgisi" class="form-control" />
-                <span asp-validation-for="YakinlikBilgisi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="YakinTC" class="control-label"></label>
-                <input asp-for="YakinTC" class="form-control" />
-                <span asp-validation-for="YakinTC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="YakinTel" class="control-label"></label>
-                <input asp-for="YakinTel" class="form-control" />
-                <span asp-validation-for="YakinTel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DogumTarihi" class="control-label"></label>
-                <input asp-for="DogumTarihi" type="date" class="form-control" />
-                <span asp-validation-for="DogumTarihi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IseGirisTarihi" class="control-label"></label>
-                <input asp-for="IseGirisTarihi" type="date" class="form-control" />
-                <span asp-validation-for="IseGirisTarihi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
