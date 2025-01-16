@@ -29,25 +29,10 @@ namespace ProjeTakipSistemi.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(PersonelBilgileri personelBilgileri)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    db.PersonelBilgileris.Add(personelBilgileri);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            }
-            catch (DbUpdateException dbEx)
-            {
-                ModelState.AddModelError(string.Empty, $"Veritabanı hatası: {dbEx.Message}");
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError(string.Empty, $"Beklenmeyen bir hata oluştu: {ex.Message}");
-            }
+              db.PersonelBilgileris.Add(personelBilgileri);
+              db.SaveChanges();
 
-            return View(personelBilgileri);
+            return RedirectToAction("Index", "PersonelBilgileris");
         }
 
         public ActionResult Details(int? id)
