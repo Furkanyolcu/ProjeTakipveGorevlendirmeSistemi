@@ -1,115 +1,120 @@
 ﻿@model ProjeTakipSistemi.Models.Personel.PersonelBilgileri
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
 
-<h4>PersonelBilgileri</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PersonelBilgileriId" />
-            <div class="form-group">
-                <label asp-for="Eposta" class="control-label"></label>
-                <input asp-for="Eposta" class="form-control" />
-                <span asp-validation-for="Eposta" class="text-danger"></span>
+@using (Html.BeginForm("Edit", "PersonelBilgileris", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PersonelBilgileriId)
+
+        <div class="card mb-4">
+            <h5 class="card-header">Personel Ekle</h5>
+            <hr class="my-0">
+            <div class="card-body">
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.AdSoyad, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.AdSoyad, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @* 
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.PersonelGörseli, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.PersonelGörseli, new { htmlAttributes = new { @class = "form-control" } })
+                    </div> *@
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Eposta, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Eposta, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Departman, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Departman, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Gorev, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Gorev, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.TCNO, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.TCNO, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Yetki, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Yetki, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.TelNo, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.TelNo, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Adres, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.DogumTarihi, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.DogumTarihi, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.IseGirisTarihi, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.IseGirisTarihi, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.MedeniHal, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.MedeniHal, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Sifre, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Sifre, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.PozisyonAciklama, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.PozisyonAciklama, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.YakinlikBilgisi, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.YakinlikBilgisi, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @* 
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.YakinAdSoyad, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.YakinAdSoyad, new { htmlAttributes = new { @class = "form-control" } })
+                    </div> *@
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.YakinTC, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.YakinTC, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.YakinTel, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.YakinTel, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="mt-2">
+                    <button type="submit" class="btn btn-primary me-2">Personel Düzenle</button>
+                    <a href="/PersonelBilgileris/Index/" class="btn btn-outline-secondary">Anasayfaya Dön</a>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Sifre" class="control-label"></label>
-                <input asp-for="Sifre" class="form-control" />
-                <span asp-validation-for="Sifre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Yetki" class="control-label"></label>
-                <input asp-for="Yetki" class="form-control" />
-                <span asp-validation-for="Yetki" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdSoyad" class="control-label"></label>
-                <input asp-for="AdSoyad" class="form-control" />
-                <span asp-validation-for="AdSoyad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TCNO" class="control-label"></label>
-                <input asp-for="TCNO" class="form-control" />
-                <span asp-validation-for="TCNO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Departman" class="control-label"></label>
-                <input asp-for="Departman" class="form-control" />
-                <span asp-validation-for="Departman" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Gorev" class="control-label"></label>
-                <input asp-for="Gorev" class="form-control" />
-                <span asp-validation-for="Gorev" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Aciklama" class="control-label"></label>
-                <input asp-for="Aciklama" class="form-control" />
-                <span asp-validation-for="Aciklama" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PozisyonAciklama" class="control-label"></label>
-                <input asp-for="PozisyonAciklama" class="form-control" />
-                <span asp-validation-for="PozisyonAciklama" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TelNo" class="control-label"></label>
-                <input asp-for="TelNo" class="form-control" />
-                <span asp-validation-for="TelNo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Adres" class="control-label"></label>
-                <input asp-for="Adres" class="form-control" />
-                <span asp-validation-for="Adres" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MedeniHal" class="control-label"></label>
-                <input asp-for="MedeniHal" class="form-control" />
-                <span asp-validation-for="MedeniHal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="YakinlikBilgisi" class="control-label"></label>
-                <input asp-for="YakinlikBilgisi" class="form-control" />
-                <span asp-validation-for="YakinlikBilgisi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="YakinTC" class="control-label"></label>
-                <input asp-for="YakinTC" class="form-control" />
-                <span asp-validation-for="YakinTC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="YakinTel" class="control-label"></label>
-                <input asp-for="YakinTel" class="form-control" />
-                <span asp-validation-for="YakinTel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DogumTarihi" class="control-label"></label>
-                <input asp-for="DogumTarihi" class="form-control" />
-                <span asp-validation-for="DogumTarihi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IseGirisTarihi" class="control-label"></label>
-                <input asp-for="IseGirisTarihi" class="form-control" />
-                <span asp-validation-for="IseGirisTarihi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
