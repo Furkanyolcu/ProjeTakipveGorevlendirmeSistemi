@@ -73,12 +73,16 @@ namespace ProjeTakipSistemi.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(PersonelBilgileri personelBilgileri)
         {
-            if (ModelState.IsValid)
-            {
+          
+                if (string.IsNullOrEmpty(personelBilgileri.Aciklama))
+                {
+                    personelBilgileri.Aciklama = "";  // Boş string ile güncelle
+                }
+
                 db.Entry(personelBilgileri).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
+            
 
             return View(personelBilgileri);
         }

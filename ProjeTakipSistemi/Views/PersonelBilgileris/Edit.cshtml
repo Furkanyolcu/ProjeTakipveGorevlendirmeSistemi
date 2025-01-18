@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 @using (Html.BeginForm("Edit", "PersonelBilgileris", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
@@ -15,7 +14,7 @@
         @Html.HiddenFor(model => model.PersonelBilgileriId)
 
         <div class="card mb-4">
-            <h5 class="card-header">Personel Ekle</h5>
+            <h5 class="card-header">Personel Düzenle</h5>
             <hr class="my-0">
             <div class="card-body">
                 <div class="row">
@@ -23,11 +22,6 @@
                         @Html.LabelFor(model => model.AdSoyad, htmlAttributes: new { @class = "control-label" })
                         @Html.EditorFor(model => model.AdSoyad, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
-                    @* 
-                    <div class="mb-3 col-md-6">
-                        @Html.LabelFor(model => model.PersonelGörseli, htmlAttributes: new { @class = "control-label" })
-                        @Html.EditorFor(model => model.PersonelGörseli, new { htmlAttributes = new { @class = "form-control" } })
-                    </div> *@
 
                     <div class="mb-3 col-md-6">
                         @Html.LabelFor(model => model.Eposta, htmlAttributes: new { @class = "control-label" })
@@ -93,11 +87,6 @@
                         @Html.LabelFor(model => model.YakinlikBilgisi, htmlAttributes: new { @class = "control-label" })
                         @Html.EditorFor(model => model.YakinlikBilgisi, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
-                    @* 
-                    <div class="mb-3 col-md-6">
-                        @Html.LabelFor(model => model.YakinAdSoyad, htmlAttributes: new { @class = "control-label" })
-                        @Html.EditorFor(model => model.YakinAdSoyad, new { htmlAttributes = new { @class = "form-control" } })
-                    </div> *@
 
                     <div class="mb-3 col-md-6">
                         @Html.LabelFor(model => model.YakinTC, htmlAttributes: new { @class = "control-label" })

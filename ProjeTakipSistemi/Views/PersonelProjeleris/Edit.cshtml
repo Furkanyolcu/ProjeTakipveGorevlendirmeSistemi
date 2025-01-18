@@ -4,62 +4,60 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
 
-<h1>Edit</h1>
+<div class="container-xxl">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+            <!-- Register Card -->
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+                        <input asp-for="PersonelProjeId" style="display:none" />
+                        <div class="form-group">
+                            <label asp-for="ProjeBaslik">Proje Başlığı</label>
+                            <input asp-for="ProjeBaslik" class="form-control" placeholder="Lütfen Proje Başlığını Giriniz" />
+                        </div>
 
-<h4>PersonelProjeleri</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PersonelProjeId" />
-            <div class="form-group">
-                <label asp-for="ProjeBaslik" class="control-label"></label>
-                <input asp-for="ProjeBaslik" class="form-control" />
-                <span asp-validation-for="ProjeBaslik" class="text-danger"></span>
+                        <div class="form-group">
+                            <label asp-for="ProjeAciklama">Proje Açıklaması</label>
+                            <input asp-for="ProjeAciklama" class="form-control" placeholder="Lütfen Proje Açıklaması Giriniz" />
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="TamamlanmaOrani">Tamamlanma Oranı</label>
+                            <input oninput="OraniDuzenle(this)" asp-for="TamamlanmaOrani" style="width:100%" type="range" min="1" max="100" />
+                        </div>
+                        <div class="col-md-12">
+                            <span id="range-text" style="color:black; font-size:20px">@Model.TamamlanmaOrani</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="OncelikDurumu">Öncelik Durumu</label>
+                            <select asp-for="OncelikDurumu" class="form-control" required>
+                                <option value="Seçiniz">Seçiniz</option>
+                                <option value="Yüksek Öncelikli">Yüksek Öncelikli</option>
+                                <option value="Orta Öncelikli">Orta Öncelikli</option>
+                                <option value="Düşük Öncelikli">Düşük Öncelikli</option>
+                            </select>
+                        </div>
+
+                        <div class="mt-2">
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                            <a href="/PersonelBilgileris/Index/" class="btn btn-outline-secondary">Anasayfaya Dön</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ProjeAciklama" class="control-label"></label>
-                <input asp-for="ProjeAciklama" class="form-control" />
-                <span asp-validation-for="ProjeAciklama" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OlusturmaTarihi" class="control-label"></label>
-                <input asp-for="OlusturmaTarihi" class="form-control" />
-                <span asp-validation-for="OlusturmaTarihi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OncelikDurumu" class="control-label"></label>
-                <input asp-for="OncelikDurumu" class="form-control" />
-                <span asp-validation-for="OncelikDurumu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TamamlanmaOrani" class="control-label"></label>
-                <input asp-for="TamamlanmaOrani" class="form-control" />
-                <span asp-validation-for="TamamlanmaOrani" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TamamlanmaTarihi" class="control-label"></label>
-                <input asp-for="TamamlanmaTarihi" class="form-control" />
-                <span asp-validation-for="TamamlanmaTarihi" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="TamamlanmaDurumu" /> @Html.DisplayNameFor(model => model.TamamlanmaDurumu)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<script>
+    var text = document.getElementById("range-text")
+    function OraniDuzenle(element) {
+        text.innerHTML = element.value + "% Tamamlandı";
+    }
+</script>

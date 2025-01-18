@@ -1,5 +1,143 @@
-﻿@{
+﻿@model List<ProjeTakipSistemi.Models.Personel.PersonelBilgileri>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<p>merhaba</p>
+<style>
+    #baslik {
+        background-color: #7d77ff;
+    }
+
+    th {
+        color: white !important;
+    }
+</style>
+
+<div class="card">
+    <h5 class="card-header">İstatistik Listesi</h5>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <table id="istatistiklistele" class="table table-striped mb-4">
+                  @*   <thead>
+                        <tr id="baslik">
+                            <th>PERSONEL ADI</th>
+                            <th>TAMAMLANAN PROJE SAYISI</th>
+                            <th>TAMAMLANMAYAN PROJE SAYISI</th>
+                            <th>TOPLAM PROJE SAYISI</th>
+                        </tr>
+                    </thead> *@
+                @*     <tbody>
+                        @foreach (var personel in Model)
+                        {
+                            <tr>
+                                <td>@personel.AdSoyad</td>
+                                <td>@ViewBag.TamamlananProjeSayisi[personel.PersonelBilgileriId]</td>
+                                <td>@ViewBag.TamamlanmayanProjeSayisi[personel.PersonelBilgileriId]</td>
+                                <td>@ViewBag.ToplamProjeSayisi[personel.PersonelBilgileriId]</td>
+                            </tr>
+                        }
+                    </tbody> *@
+                </table>
+
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <small class="text-muted">Toplam Proje</small>
+                                        <h4 class="mb-0">@ViewBag.ProjeSayisi</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <small class="text-muted">Tamamlanan Proje</small>
+                                        <h4 class="mb-0">@ViewBag.TamamlanmisProje</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <small class="text-muted">Tamamlanmayan Proje</small>
+                                        <h4 class="mb-0">@ViewBag.TamamlanmamisProje</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               @*  <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <small class="text-muted">Yüksek Öncelikli Tamamlanmayan</small>
+                                        <h4 class="mb-0">@ViewBag.YuksekVeBasarisiz</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <small class="text-muted">Orta Öncelikli Tamamlanmayan</small>
+                                        <h4 class="mb-0">@ViewBag.OrtaVeBasarisiz</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> *@
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <script>
+    $('#istatistiklistele').DataTable({
+        language: {
+            info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+            infoEmpty: "Gösterilecek hiç kayıt yok.",
+            loadingRecords: "Kayıtlar yükleniyor.",
+            zeroRecords: "Tablo boş",
+            search: "Arama:",
+            infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+            buttons: {
+                copyTitle: "Panoya kopyalandı.",
+                copySuccess: "Panoya %d satır kopyalandı",
+                copy: "Kopyala",
+                print: "Yazdır",
+            },
+            paginate: {
+                first: "İlk",
+                previous: "Önceki",
+                next: "Sonraki",
+                last: "Son"
+            },
+        },
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf', 'print'
+        ],
+        responsive: true
+    });
+</script>
+
+ *@

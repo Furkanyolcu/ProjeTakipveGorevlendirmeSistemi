@@ -31,8 +31,8 @@
                     <th>@Html.DisplayNameFor(model => model.Gorev)</th>
 @*                     <th>@Html.DisplayNameFor(model => model.TelNo)</th>
  *@                    <th>AKSİYON</th>
-                    <th>@Html.DisplayNameFor(model => model.PozisyonAciklama)</th>
-                </tr>
+@*                     <th>@Html.DisplayNameFor(model => model.PozisyonAciklama)</th>
+ *@                </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
@@ -72,13 +72,13 @@
                             <a href="/PersonelBilgileris/Delete/@item.PersonelBilgileriId" class="btn btn-secondary">
                                 <span class="tf-icons bx bx-trash"></span>
                             </a>
-                            <a href="/PersonelBilgileris/HareketFöyü/@item.PersonelBilgileriId" class="btn btn-secondary">
+                          @*   <a href="/PersonelBilgileris/HareketFöyü/@item.PersonelBilgileriId" class="btn btn-secondary">
                                 <span class="tf-icons bx bx-history"></span>
-                            </a>
+                            </a> *@
                         </td>
-                        <td>
+                       @*  <td>
                             @Html.DisplayFor(modelItem => item.PozisyonAciklama)
-                        </td>
+                        </td> *@
                     </tr>
                 }
             </tbody>

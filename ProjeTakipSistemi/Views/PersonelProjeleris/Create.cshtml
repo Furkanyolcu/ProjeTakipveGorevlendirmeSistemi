@@ -10,55 +10,66 @@
 <h4>PersonelProjeleri</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ProjeBaslik" class="control-label"></label>
-                <input asp-for="ProjeBaslik" class="form-control" />
-                <span asp-validation-for="ProjeBaslik" class="text-danger"></span>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <!-- Başlık ve Açıklama Alanları -->
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ProjeBaslik" class="control-label"></label>
+                        <input asp-for="ProjeBaslik" class="form-control" placeholder="Lütfen Proje Başlığını Giriniz" />
+                        <span asp-validation-for="ProjeBaslik" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ProjeAciklama" class="control-label"></label>
+                        <input asp-for="ProjeAciklama" class="form-control" placeholder="Lütfen Proje Açıklaması Giriniz" />
+                        <span asp-validation-for="ProjeAciklama" class="text-danger"></span>
+                    </div>
+
+                    <!-- Öncelik Durumu -->
+                    <div class="form-group">
+                        <label asp-for="OncelikDurumu" class="control-label"></label>
+                        <select asp-for="OncelikDurumu" class="form-control" required>
+                            <option value="Seçiniz">Seçiniz</option>
+                            <option value="Yüksek Öncelikli">Yüksek Öncelikli</option>
+                            <option value="Orta Öncelikli">Orta Öncelikli</option>
+                            <option value="Düşük Öncelikli">Düşük Öncelikli</option>
+                        </select>
+                        <span asp-validation-for="OncelikDurumu" class="text-danger"></span>
+                    </div>
+
+                  @*   <!-- Personel Seçimi -->
+                    <div class="mb-3 col-md-12">
+                        <div id="insert-section">
+                            <div id="personel-select">
+                                <div class="form-group">
+                                    @Html.DropDownList("PersonelBilgileriId", null, htmlAttributes: new { @class = "form-control" })
+                                    <i onclick="PersonelEkle()" class="bx bx-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div> *@
+
+                    <!-- Gönder butonu -->
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-primary me-2">Proje Oluştur</button>
+                        <a href="/PersonelBilgileris/Index/" class="btn btn-outline-secondary">Anasayfaya Dön</a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="ProjeAciklama" class="control-label"></label>
-                <input asp-for="ProjeAciklama" class="form-control" />
-                <span asp-validation-for="ProjeAciklama" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OlusturmaTarihi" class="control-label"></label>
-                <input asp-for="OlusturmaTarihi" class="form-control" />
-                <span asp-validation-for="OlusturmaTarihi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OncelikDurumu" class="control-label"></label>
-                <input asp-for="OncelikDurumu" class="form-control" />
-                <span asp-validation-for="OncelikDurumu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TamamlanmaOrani" class="control-label"></label>
-                <input asp-for="TamamlanmaOrani" class="form-control" />
-                <span asp-validation-for="TamamlanmaOrani" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TamamlanmaTarihi" class="control-label"></label>
-                <input asp-for="TamamlanmaTarihi" class="form-control" />
-                <span asp-validation-for="TamamlanmaTarihi" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="TamamlanmaDurumu" /> @Html.DisplayNameFor(model => model.TamamlanmaDurumu)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<script>
+    var parentDiv = $("#insert-section");
+    var oldSelectDiv = $("#personel-select");
+    function PersonelEkle() {
+        var newSelectDiv = oldSelectDiv.clone(true);
+        oldSelectDiv.find(".bx-plus").remove();
+        parentDiv.append(newSelectDiv);
+        oldSelectDiv = newSelectDiv;
+    }
+</script>

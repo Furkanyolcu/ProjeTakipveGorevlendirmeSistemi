@@ -12,146 +12,62 @@ namespace ProjeTakipSistemi.Controllers
 {
     public class PersonelProjelerisController : Controller
     {
-        private readonly Context _context;
+        private readonly Context db = new Context();
 
-        public PersonelProjelerisController(Context context)
+
+        // GET: PersonelProje
+        public ActionResult Index()
         {
-            _context = context;
+            var projelistele = db.PersonelProjeleris.ToList();
+            return View(projelistele);
         }
 
-        // GET: PersonelProjeleris
-        public async Task<IActionResult> Index()
+        public ActionResult Create()
         {
-            return View(await _context.PersonelProjeleris.ToListAsync());
-        }
-
-        // GET: PersonelProjeleris/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var personelProjeleri = await _context.PersonelProjeleris
-                .FirstOrDefaultAsync(m => m.PersonelProjeId == id);
-            if (personelProjeleri == null)
-            {
-                return NotFound();
-            }
-
-            return View(personelProjeleri);
-        }
-
-        // GET: PersonelProjeleris/Create
-        public IActionResult Create()
-        {
+            ViewBag.PersonelBilgileriId = new SelectList(db.PersonelBilgileris, "PersonelBilgileriId", "AdSoyad");
             return View();
         }
-
-        // POST: PersonelProjeleris/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PersonelProjeId,ProjeBaslik,ProjeAciklama,OlusturmaTarihi,OncelikDurumu,TamamlanmaOrani,TamamlanmaTarihi,TamamlanmaDurumu")] PersonelProjeleri personelProjeleri)
+        public ActionResult Create(PersonelProjeleri projeObj, int[] PersonelBilgileriId)
         {
-            if (ModelState.IsValid)
+
+            foreach (var x in PersonelBilgileriId)
             {
-                _context.Add(personelProjeleri);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                projeObj.PersonelBilgileris.Add(db.PersonelBilgileris.Find(x));
             }
-            return View(personelProjeleri);
+            projeObj.OlusturmaTarihi = DateTime.Now;
+            db.PersonelProjeleris.Add(projeObj);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
-        // GET: PersonelProjeleris/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var personelProjeleri = await _context.PersonelProjeleris.FindAsync(id);
-            if (personelProjeleri == null)
-            {
-                return NotFound();
-            }
-            return View(personelProjeleri);
+            var projeObj = db.PersonelProjeleris.Find(id);
+            return View(projeObj);
         }
-
-        // POST: PersonelProjeleris/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PersonelProjeId,ProjeBaslik,ProjeAciklama,OlusturmaTarihi,OncelikDurumu,TamamlanmaOrani,TamamlanmaTarihi,TamamlanmaDurumu")] PersonelProjeleri personelProjeleri)
-        {
-            if (id != personelProjeleri.PersonelProjeId)
-            {
-                return NotFound();
-            }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(personelProjeleri);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PersonelProjeleriExists(personelProjeleri.PersonelProjeId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(personelProjeleri);
+        public ActionResult Edit(PersonelProjeleri projeObj)
+        {
+            var projeDbObj = db.PersonelProjeleris.Find(projeObj.PersonelProjeId);
+            projeDbObj.ProjeAciklama = projeObj.ProjeAciklama;
+            projeDbObj.ProjeBaslik = projeObj.ProjeBaslik;
+            projeDbObj.TamamlanmaOrani = projeObj.TamamlanmaOrani;
+            projeDbObj.OncelikDurumu = projeObj.OncelikDurumu;
+            projeDbObj.TamamlanmaTarihi = DateTime.Now;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
-        // GET: PersonelProjeleris/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+
+        public ActionResult Tamamla(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var personelProjeleri = await _context.PersonelProjeleris
-                .FirstOrDefaultAsync(m => m.PersonelProjeId == id);
-            if (personelProjeleri == null)
-            {
-                return NotFound();
-            }
-
-            return View(personelProjeleri);
-        }
-
-        // POST: PersonelProjeleris/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var personelProjeleri = await _context.PersonelProjeleris.FindAsync(id);
-            if (personelProjeleri != null)
-            {
-                _context.PersonelProjeleris.Remove(personelProjeleri);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool PersonelProjeleriExists(int id)
-        {
-            return _context.PersonelProjeleris.Any(e => e.PersonelProjeId == id);
+            var projeObj = db.PersonelProjeleris.Find(id);
+            projeObj.TamamlanmaDurumu = true;
+            projeObj.TamamlanmaOrani = 100;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
