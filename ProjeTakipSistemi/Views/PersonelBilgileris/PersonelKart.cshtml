@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "PersonelKart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,19 +7,30 @@
 
 <style>
     .card {
+        margin-bottom: 1.5rem;
+        height: 100%;
         background-clip: padding-box;
-        box-shadow: 0px -17px 19px 12px rgba(67, 89, 113, 0.12) !important;
+        box-shadow: 0 0.125rem 0.25rem rgba(67, 89, 113, 0.12) !important;
+    }
+
+    .card-solid .row {
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
+    }
+
+    .card-solid .col-12 {
+        padding: 0.75rem;
     }
 </style>
-<section class="content">
 
+<section class="content">
     <div class="card card-solid">
         <div class="card-body pb-0">
             <div class="row">
                 @foreach (var item in Model)
                 {
-                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                        <div class="card bg-light d-flex flex-fill">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card bg-light">
                             <div class="card-header text-muted border-bottom-0">
                                 @item.Departman
                             </div>
@@ -35,14 +45,14 @@
                                         </ul>
                                     </div>
                                     <div class="col-5 text-center">
-@*                                         <img src="@item.PersonelGörseli" alt="user-avatar" class="rounded-circle" style="height:100px; width:100px">
+                                        @*                                         <img src="@item.PersonelGörseli" alt="user-avatar" class="rounded-circle" style="height:100px; width:100px">
  *@                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="text-right">
                                     <a href="mailto:@item.Eposta" class="btn btn-sm btn-primary">
-                                        <i class="fas fa-comments"></i>Mail
+                                        <i class="fas fa-comments"></i> Mail
                                     </a>
                                     <a href="tel:@item.TelNo" class="btn btn-sm btn-primary">
                                         <i class="fas fa-user"></i> Ara
@@ -51,11 +61,8 @@
                             </div>
                         </div>
                     </div>
-
                 }
-
             </div>
         </div>
     </div>
-
 </section>

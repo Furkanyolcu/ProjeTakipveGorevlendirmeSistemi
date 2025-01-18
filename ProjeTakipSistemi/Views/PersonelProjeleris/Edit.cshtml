@@ -1,0 +1,65 @@
+﻿@model ProjeTakipSistemi.Models.GorevAtama.PersonelProjeleri
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>PersonelProjeleri</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PersonelProjeId" />
+            <div class="form-group">
+                <label asp-for="ProjeBaslik" class="control-label"></label>
+                <input asp-for="ProjeBaslik" class="form-control" />
+                <span asp-validation-for="ProjeBaslik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjeAciklama" class="control-label"></label>
+                <input asp-for="ProjeAciklama" class="form-control" />
+                <span asp-validation-for="ProjeAciklama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OlusturmaTarihi" class="control-label"></label>
+                <input asp-for="OlusturmaTarihi" class="form-control" />
+                <span asp-validation-for="OlusturmaTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OncelikDurumu" class="control-label"></label>
+                <input asp-for="OncelikDurumu" class="form-control" />
+                <span asp-validation-for="OncelikDurumu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TamamlanmaOrani" class="control-label"></label>
+                <input asp-for="TamamlanmaOrani" class="form-control" />
+                <span asp-validation-for="TamamlanmaOrani" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TamamlanmaTarihi" class="control-label"></label>
+                <input asp-for="TamamlanmaTarihi" class="form-control" />
+                <span asp-validation-for="TamamlanmaTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TamamlanmaDurumu" /> @Html.DisplayNameFor(model => model.TamamlanmaDurumu)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

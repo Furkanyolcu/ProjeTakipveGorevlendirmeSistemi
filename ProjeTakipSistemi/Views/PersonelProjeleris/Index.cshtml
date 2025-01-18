@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ProjeTakipSistemi.Models.GorevAtama.PersonelProjeleri>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjeBaslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjeAciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OlusturmaTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OncelikDurumu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TamamlanmaOrani)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TamamlanmaTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TamamlanmaDurumu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjeBaslik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjeAciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OlusturmaTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OncelikDurumu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TamamlanmaOrani)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TamamlanmaTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TamamlanmaDurumu)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PersonelProjeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PersonelProjeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PersonelProjeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
