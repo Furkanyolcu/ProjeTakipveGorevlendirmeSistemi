@@ -9,7 +9,7 @@ builder.Services.AddHttpContextAccessor();
 // Session hizmetini ekleyin
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session süresi
+    options.IdleTimeout = TimeSpan.FromMinutes(30); 
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });

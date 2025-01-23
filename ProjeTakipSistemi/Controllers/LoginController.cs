@@ -14,22 +14,19 @@ namespace ProjeTakipSistemi.Controllers
         {
             return View();
         }
-        [HttpPost]
+        [HttpPost] //giriş
         public async Task<IActionResult> Index(string email, string password)
         {
-            // Kullanıcı giriş bilgilerini kontrol et
             var user = await db.Users.FirstOrDefaultAsync(x => x.UserEmail == email && x.UserPassword == password);
 
             if (user != null)
             {
-                // Kullanıcı adını oturuma kaydet
+                // Oturuma kaydet
                 HttpContext.Session.SetString("UserNameSurname", user.UserNameSurname);
 
-                // Giriş başarılı, kullanıcıyı "Panel" sayfasına yönlendir
                 return RedirectToAction("Index", "PersonelBilgileris");
             }
 
-            // Giriş başarısızsa hata mesajı ekle
             ModelState.AddModelError("", "Geçersiz e-posta veya şifre");
             return View();
         }
@@ -43,7 +40,6 @@ namespace ProjeTakipSistemi.Controllers
         [HttpPost]
         public async Task<IActionResult> Kayıt(string email, string password, string UserNameSurname)
         {
-            Console.WriteLine($"Email: {email}, Password: {password}, UserNameSurname: {UserNameSurname}");
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(UserNameSurname))
             {

@@ -20,7 +20,7 @@ namespace ProjeTakipSistemi.Controllers
             return View(db.PersonelBilgileris.ToList());
         }
 
-        public ActionResult Create() //EKLEME OLUŞTURMA
+        public ActionResult Create() 
         {
             return View();
         }
