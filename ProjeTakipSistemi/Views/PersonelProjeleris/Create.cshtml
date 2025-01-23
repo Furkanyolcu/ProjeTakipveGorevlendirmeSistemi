@@ -5,31 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
-
 <h4>PersonelProjeleri</h4>
 <hr />
 <div class="row">
     <div class="col-md-8">
         <div class="card">
             <div class="card-body">
-                <!-- Başlık ve Açıklama Alanları -->
                 <form asp-action="Create" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
+                    <div class="form-group" style="margin-top: 30px;">
                         <label asp-for="ProjeBaslik" class="control-label"></label>
                         <input asp-for="ProjeBaslik" class="form-control" placeholder="Lütfen Proje Başlığını Giriniz" />
                         <span asp-validation-for="ProjeBaslik" class="text-danger"></span>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="margin-top: 30px;">
                         <label asp-for="ProjeAciklama" class="control-label"></label>
                         <input asp-for="ProjeAciklama" class="form-control" placeholder="Lütfen Proje Açıklaması Giriniz" />
                         <span asp-validation-for="ProjeAciklama" class="text-danger"></span>
                     </div>
 
-                    <!-- Öncelik Durumu -->
-                    <div class="form-group">
+                    <div class="form-group" style="margin-top: 30px;">
                         <label asp-for="OncelikDurumu" class="control-label"></label>
                         <select asp-for="OncelikDurumu" class="form-control" required>
                             <option value="Seçiniz">Seçiniz</option>
@@ -39,23 +35,9 @@
                         </select>
                         <span asp-validation-for="OncelikDurumu" class="text-danger"></span>
                     </div>
-
-                  @*   <!-- Personel Seçimi -->
-                    <div class="mb-3 col-md-12">
-                        <div id="insert-section">
-                            <div id="personel-select">
-                                <div class="form-group">
-                                    @Html.DropDownList("PersonelBilgileriId", null, htmlAttributes: new { @class = "form-control" })
-                                    <i onclick="PersonelEkle()" class="bx bx-plus"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div> *@
-
-                    <!-- Gönder butonu -->
-                    <div class="mt-2">
-                        <button type="submit" class="btn btn-primary me-2">Proje Oluştur</button>
-                        <a href="/PersonelBilgileris/Index/" class="btn btn-outline-secondary">Anasayfaya Dön</a>
+                    <div class="mt-2" style="margin-top: 30px;">
+                        <button type="submit" style="margin-top: 30px;" class="btn btn-primary me-2">Proje Oluştur </button>
+                        <a href="/PersonelBilgileris/Index/" style="margin-top: 30px;" class="btn btn-outline-secondary">Anasayfaya Dön</a>
                     </div>
                 </form>
             </div>

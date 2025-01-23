@@ -91,8 +91,8 @@ namespace ProjeTakipSistemi.Migrations
 
                     b.Property<string>("AdSoyad")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("Adres")
                         .IsRequired()
@@ -127,8 +127,8 @@ namespace ProjeTakipSistemi.Migrations
 
                     b.Property<string>("PozisyonAciklama")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("Sifre")
                         .IsRequired()
@@ -168,6 +168,31 @@ namespace ProjeTakipSistemi.Migrations
                     b.HasKey("PersonelBilgileriId");
 
                     b.ToTable("PersonelBilgileris");
+                });
+
+            modelBuilder.Entity("ProjeTakipSistemi.Models.User", b =>
+                {
+                    b.Property<int>("UserID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserID"));
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserNameSurname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserID");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("PersonelBilgileriPersonelProjeleri", b =>

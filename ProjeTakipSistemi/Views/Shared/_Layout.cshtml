@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@* IEnumerable<ProjeTakipSistemi.Models.Personel.PersonelBilgileri>
+ *@<!DOCTYPE html>
 <style>
     table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
         top: 9px;
@@ -199,8 +200,8 @@
 
 
                     <!-- Forms & Tables -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">RAPORLAMALAR </span></li>
-                    <!-- Forms -->
+@*                     <li class="menu-header small text-uppercase"><span class="menu-header-text">RAPORLAMALAR </span></li>
+ *@                    <!-- Forms -->
                   @*   <li class="menu-item">
                         <a href="/ProjeRaporlari/GenelProjeRaporlari/" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -211,15 +212,14 @@
 
 
                     <!-- Misc -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">DESTEK</span></li>
+                     <li class="menu-header small text-uppercase"><span class="menu-header-text">DESTEK</span></li>
                     <li class="menu-item">
-                        <a href="/ProjeRaporlari/CanliDestek/"
-                           target="_blank"
+                            <a href="/Login/NotFound"
                            class="menu-link">
                             <i class="menu-icon tf-icons bx bx-support"></i>
                             <div data-i18n="Support">Canlı Destek</div>
                         </a>
-                    </li>
+                    </li> 
 
                 </ul>
             </aside>
@@ -265,13 +265,17 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="~/resim.jpeg" alt class="w-px-40 h-auto rounded-circle" />
+                                                            <img src="~/sneat-bootstrap-html-admin-template/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
-                                                <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">Ad Soyad</span>
-                                                    <small class="text-muted">Pozisyon</small>
-                                                </div>
+                                                    @inject IHttpContextAccessor HttpContextAccessor
+
+                                                    <div>
+                                                        <span class="fw-semibold d-block" style="margin-top: 9px;">
+                                                            @HttpContextAccessor.HttpContext.Session.GetString("UserNameSurname")
+                                                        </span>
+                                                    </div>
+
                                             </div>
                                         </a>
                                     </li>
@@ -286,7 +290,7 @@
                                     </li>
 
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="/PersonelProjeleris/Index">
                                             <span class="d-flex align-items-center align-middle">
                                                 <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
                                                 <span class="flex-grow-1 align-middle">Görevlerim</span>
@@ -298,7 +302,7 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="auth-login-basic.html">
+                                        <a class="dropdown-item" href="#">
                                             <i class="bx bx-power-off me-2"></i>
                                             <span class="align-middle">Çıkış Yap</span>
                                         </a>
@@ -328,17 +332,28 @@
                                 <a href="" target="_blank" class="footer-link fw-bolder">Tüm Hakları Saklıdır</a>
                             </div> *@
                             <div>
-                                <a href="" class="footer-link me-4" target="_blank">Whatsapp</a>
-                                <a href="" target="_blank" class="footer-link me-4">Eposta</a>
-
-                                <a href=""
+                                <!-- E-posta Bağlantısı -->
+                                <a href="mailto:melisabaturay67@gmail.com"
                                    target="_blank"
-                                   class="footer-link me-4">Linkedin</a>
+                                   class="footer-link me-4">
+                                    Eposta
+                                </a>
 
-                                <a href=""
+                                <!-- LinkedIn Bağlantısı -->
+                                <a href="https://www.linkedin.com/in/mel%C4%B1sabaturay/"
                                    target="_blank"
-                                   class="footer-link me-4">Github</a>
+                                   class="footer-link me-4">
+                                    LinkedIn
+                                </a>
+
+                                <!-- GitHub Bağlantısı -->
+                                <a href="https://github.com/MelisaBaturay"
+                                   target="_blank"
+                                   class="footer-link me-4">
+                                    GitHub
+                                </a>
                             </div>
+
                         </div>
                     </footer>
                     <!-- / Footer -->
@@ -375,6 +390,7 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
 </body>
 </html>
 

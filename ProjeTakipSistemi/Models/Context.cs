@@ -12,5 +12,6 @@ namespace ProjeTakipSistemi.Models.DBContext
         }
         public DbSet<PersonelBilgileri> PersonelBilgileris { get; set; }
         public DbSet<PersonelProjeleri> PersonelProjeleris { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

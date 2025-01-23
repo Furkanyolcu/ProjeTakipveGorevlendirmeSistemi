@@ -23,45 +23,21 @@
             <thead>
                 <tr>
                     <th>E-POSTA ADRESİ</th>
-@*                     <th>PERSONEL GÖRSELİ</th>
- *@                    <th>@Html.DisplayNameFor(model => model.Yetki)</th>
                     <th>@Html.DisplayNameFor(model => model.AdSoyad)</th>
                     <th>@Html.DisplayNameFor(model => model.TCNO)</th>
-                    <th>@Html.DisplayNameFor(model => model.Departman)</th>
                     <th>@Html.DisplayNameFor(model => model.Gorev)</th>
-@*                     <th>@Html.DisplayNameFor(model => model.TelNo)</th>
- *@                    <th>AKSİYON</th>
-@*                     <th>@Html.DisplayNameFor(model => model.PozisyonAciklama)</th>
- *@                </tr>
+                    <th>@Html.DisplayNameFor(model => model.Departman)</th>
+                    <th data-priority="1">AKSİYON</th>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>
-                            <a href="mailto:@item.Eposta">@item.Eposta</a>
-                        </td>
-                       @*  <td>
-                            <img src="@item.PersonelGörseli" style="width:50px; height:50px;" class="rounded-circle" />
-                        </td> *@
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Yetki)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AdSoyad)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TCNO)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Departman)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Gorev)
-                        </td>
-                      @*   <td>
-                            <a href="tel:@item.TelNo">@item.TelNo</a>
-                        </td> *@
+                        <td><a href="mailto:@item.Eposta">@item.Eposta</a></td>
+                        <td>@Html.DisplayFor(modelItem => item.AdSoyad)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TCNO)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Gorev)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Departman)</td>
                         <td>
                             <a href="/PersonelBilgileris/Edit/@item.PersonelBilgileriId" class="btn btn-secondary">
                                 <span class="tf-icons bx bx-edit"></span>
@@ -72,13 +48,6 @@
                             <a href="/PersonelBilgileris/Delete/@item.PersonelBilgileriId" class="btn btn-secondary">
                                 <span class="tf-icons bx bx-trash"></span>
                             </a>
-                          @*   <a href="/PersonelBilgileris/HareketFöyü/@item.PersonelBilgileriId" class="btn btn-secondary">
-                                <span class="tf-icons bx bx-history"></span>
-                            </a> *@
-                        </td>
-                       @*  <td>
-                            @Html.DisplayFor(modelItem => item.PozisyonAciklama)
-                        </td> *@
                     </tr>
                 }
             </tbody>
@@ -94,7 +63,7 @@
 </div>
 
 <script>
-    $('#personellistele').DataTable({
+       $('#personellistele').DataTable({
         language: {
             info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
             infoEmpty: "Gösterilecek hiç kayıt yok.",
@@ -108,7 +77,6 @@
                 copy: "Kopyala",
                 print: "Yazdır",
             },
-
             paginate: {
                 first: "İlk",
                 previous: "Önceki",
@@ -117,9 +85,13 @@
             },
         },
         dom: 'Bfrtip',
-        buttons: [
-            'copy', 'excel', 'pdf', 'print'
-        ],
-        responsive: true
+        buttons: ['copy', 'excel', 'pdf', 'print'],
+        responsive: true, // Tabloyu responsive hale getirir
+        columnDefs: [
+            { responsivePriority: 1, targets: -1 }, // Aksiyon sütunu sabit
+            { responsivePriority: 2, targets: 0 }, // İlk sütun sabit
+            { responsivePriority: 3, targets: [4] }, // Görev sütunu detaylarda görünür
+        ]
     });
+
 </script>

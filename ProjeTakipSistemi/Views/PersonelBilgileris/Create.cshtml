@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card mb-4">
-            <h5 class="card-header">Personnel Details</h5>
+            <h5 class="card-header">Personel ekle</h5>
             <div class="card-body">
                 <form asp-action="Create" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
@@ -40,14 +40,46 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="Departman" class="form-label">Departman</label>
-                            <input asp-for="Departman" class="form-control" id="Departman" />
+                            <select asp-for="Departman" class="form-control" id="Departman">
+                                <option value="Seçiniz">Seçiniz</option>
+                                <option value="Yazılım">Yazılım</option>
+                                <option value="Satış">Satış</option>
+                                <option value="Yönetim">Yönetim</option>
+                                <option value="Üretim">Üretim</option>
+                                <option value="Satın Alma">Satın Alma</option>
+                                <option value="Kalite">Kalite</option>
+                                <option value="Muhasebe">Muhasebe</option>
+                                <option value="IK">IK</option>
+                                <option value="İş Geliştirme">İş Geliştirme</option>
+                            </select>
                             <span asp-validation-for="Departman" class="text-danger"></span>
                         </div>
+
                         <div class="mb-3 col-md-6">
                             <label for="Gorev" class="form-label">Görev</label>
-                            <input asp-for="Gorev" class="form-control" id="Gorev" />
+                            <select asp-for="Gorev" class="form-control" id="Gorev">
+                                <option value="Seçiniz">Seçiniz</option>
+                                <option value="Backend Developer">Backend Developer</option>
+                                <option value="Frontend Developer">Frontend Developer</option>
+                                <option value="Fullstack Developer">Fullstack Developer</option>
+                                <option value="IT Sorumlusu">IT Sorumlusu</option>
+                                <option value="Yazılım Takım Lideri">Yazılım Takım Lideri</option>
+                                <option value="Proje Yöneticisi">Proje Yöneticisi</option>
+                                <option value="Genel Müdür">Genel Müdür</option>
+                                <option value="Genel Müdür Yardımcısı">Genel Müdür Yardımcısı</option>
+                                <option value="CEO">CEO</option>
+                                <option value="Fabrika Müdürü">Fabrika Müdürü</option>
+                                <option value="Yönetim Temsilcisi">Yönetim Temsilcisi</option>
+                                <option value="Dış Ticaret Sorumlusu">Dış Ticaret Sorumlusu</option>
+                                <option value="Satın Alma Personeli">Satın Alma Personeli</option>
+                                <option value="Kalite Personeli">Kalite Personeli</option>
+                                <option value="Muhasebe Personeli">Muhasebe Personeli</option>
+                                <option value="IK Personeli">IK Personeli</option>
+                                <option value="İş Geliştirme Personeli">İş Geliştirme Personeli</option>
+                            </select>
                             <span asp-validation-for="Gorev" class="text-danger"></span>
                         </div>
+
                         <div class="mb-3 col-md-6">
                             <label for="Aciklama" class="form-label">Açıklama</label>
                             <input asp-for="Aciklama" class="form-control" id="Aciklama" />
@@ -70,14 +102,28 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="MedeniHal" class="form-label">Medeni Hal</label>
-                            <input asp-for="MedeniHal" class="form-control" id="MedeniHal" />
+                            <select asp-for="MedeniHal" class="form-control" id="MedeniHal">
+                                <option value="Seçiniz">Seçiniz</option>
+                                <option value="Bekar">Bekar</option>
+                                <option value="Evli">Evli</option>
+                            </select>
                             <span asp-validation-for="MedeniHal" class="text-danger"></span>
                         </div>
+
                         <div class="mb-3 col-md-6">
                             <label for="YakinlikBilgisi" class="form-label">Yakınlık Bilgisi</label>
-                            <input asp-for="YakinlikBilgisi" class="form-control" id="YakinlikBilgisi" />
+                            <select asp-for="YakinlikBilgisi" class="form-control" id="YakinlikBilgisi">
+                                <option value="Seçiniz">Seçiniz</option>
+                                <option value="Eşi">Eşi</option>
+                                <option value="Babası">Babası</option>
+                                <option value="Annesi">Annesi</option>
+                                <option value="Kardeşi">Kardeşi</option>
+                                <option value="Çocuğu">Çocuğu</option>
+                                <option value="Diğer">Diğer</option>
+                            </select>
                             <span asp-validation-for="YakinlikBilgisi" class="text-danger"></span>
                         </div>
+
                         <div class="mb-3 col-md-6">
                             <label for="YakinTC" class="form-label">Yakın TC</label>
                             <input asp-for="YakinTC" class="form-control" id="YakinTC" />

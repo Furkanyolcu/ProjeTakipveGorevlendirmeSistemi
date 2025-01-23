@@ -22,7 +22,7 @@ namespace ProjeTakipSistemi.Models.Personel
         public string Yetki { get; set; }
 
         [DisplayName("AD SOYAD")]
-        [StringLength(15, ErrorMessage = "Maximum uzunluk 15 karakterden fazla olamaz")]
+        [StringLength(25, ErrorMessage = "Maximum uzunluk 25 karakterden fazla olamaz")]
         public string AdSoyad { get; set; }
 
         [DisplayName("TC KİMLİK NO")]
@@ -41,31 +41,31 @@ namespace ProjeTakipSistemi.Models.Personel
         [StringLength(25, ErrorMessage = "Maximum uzunluk 25 karakterden fazla olamaz")]
         public string Aciklama { get; set; }
 
-        [DisplayName("TELEFON NUMARASI")]
-        [StringLength(15, ErrorMessage = "Maximum uzunluk 15 karakterden fazla olamaz")]
+        [DisplayName("POZİSYON AÇIKLAMA")]
+        [StringLength(25, ErrorMessage = "Maximum uzunluk 25 karakterden fazla olamaz")]
         public string PozisyonAciklama { get; set; }
 
-        [DisplayName("ADRES BİLGİLERİ")]
+        [DisplayName("TELEFON NUMARASI")]
         [StringLength(25, ErrorMessage = "Maximum uzunluk 25 karakterden fazla olamaz")]
         public string TelNo { get; set; }
 
-        [DisplayName("MEDENİ HAL")]
+        [DisplayName("ADRES")]
         [StringLength(25, ErrorMessage = "Maximum uzunluk 25 karakterden fazla olamaz")]
         public string Adres { get; set; }
 
-        [DisplayName("YAKINLIK BİLGİSİ")]
+        [DisplayName("MEDENİ HAL")]
         [StringLength(25, ErrorMessage = "Maximum uzunluk 25 karakterden fazla olamaz")]
         public string MedeniHal { get; set; }
 
-        [DisplayName("YAKIN TC NO")]
+        [DisplayName("YAKINLIK BİLGİSİ")]
         [StringLength(25, ErrorMessage = "Maximum uzunluk 25 karakterden fazla olamaz")]
         public string YakinlikBilgisi { get; set; }
 
-        [DisplayName("YAKIN TELEFONU")]
+        [DisplayName("YAKIN TC")]
         [StringLength(25, ErrorMessage = "Maximum uzunluk 25 karakterden fazla olamaz")]
         public string YakinTC { get; set; }
 
-        [DisplayName("YAKIN AD SOYAD")]
+        [DisplayName("YAKIN TELEFON NO")]
         [StringLength(25, ErrorMessage = "Maximum uzunluk 25 karakterden fazla olamaz")]
         public string YakinTel { get; set; }
 
