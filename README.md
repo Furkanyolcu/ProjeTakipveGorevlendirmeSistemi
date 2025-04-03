@@ -2,10 +2,12 @@
 ## Teknolojiler ve Araçlar  
 
 <p align="left">
+  <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" alt="C#">
   <img src="https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET">
   <img src="https://img.shields.io/badge/MS%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white" alt="MS SQL Server">
   <img src="https://img.shields.io/badge/Visual%20Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white" alt="Visual Studio">
 </p>
+
 
 
 ![Ekran görüntüsü 2025-04-03 181640](https://github.com/user-attachments/assets/07911da2-10b0-4bd0-80d7-181a45006223)
